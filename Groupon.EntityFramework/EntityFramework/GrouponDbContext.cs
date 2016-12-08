@@ -8,6 +8,8 @@ namespace Groupon.EntityFramework
 {
     public class GrouponDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
+        //TODO: Add-Migration InitialCreate
+        //TODO: Update-Database
         //TODO: Define an IDbSet for your Entities...
 
         /* NOTE: 
