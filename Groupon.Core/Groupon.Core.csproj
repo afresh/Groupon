@@ -130,6 +130,13 @@
     <Compile Include="Grp.MembershipCardTypes\MembershipCardType.cs" />
     <Compile Include="Grp.Members\Member.cs" />
     <Compile Include="Grp.Messages\Message.cs" />
+    <Compile Include="ManagerDto.cs" />
+    <Compile Include="Menus\Dto\MenuDto.cs" />
+    <Compile Include="Menus\Dto\MenuManagerDto.cs" />
+    <Compile Include="Menus\IMenuManager.cs" />
+    <Compile Include="Menus\Menu.cs" />
+    <Compile Include="Menus\MenuManager.cs" />
+    <Compile Include="Menus\MenuPermission.cs" />
     <Compile Include="MultiTenancy\Tenant.cs" />
     <Compile Include="MultiTenancy\TenantManager.cs" />
     <Compile Include="Grp.PackageEvaluations\PackageEvaluation.cs" />

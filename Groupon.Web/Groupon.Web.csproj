@@ -347,7 +347,7 @@
       <DependentUpon>main.css</DependentUpon>
     </Content>
     <Content Include="Cms\Main\services\appSession.js" />
-    <Content Include="Cms\Main\views\about\about.js" />
+    <Content Include="Cms\Main\views\aboutus\aboutus.js" />
     <Content Include="Cms\Main\views\directives\autoFocus.js" />
     <Content Include="Cms\Main\views\directives\enterKey.js" />
     <Content Include="Cms\Main\views\home\home.js" />
@@ -508,7 +508,7 @@
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
     <Content Include="Cms\Main\main.less" />
-    <Content Include="Cms\Main\views\about\about.cshtml" />
+    <Content Include="Cms\Main\views\aboutus\aboutus.cshtml" />
     <Content Include="Cms\Main\views\home\home.cshtml" />
     <Content Include="Cms\Main\views\layout\header.cshtml" />
     <Content Include="Cms\Main\views\layout\layout.cshtml" />

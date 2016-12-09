@@ -1,12 +1,26 @@
 ﻿(function () {
     var controllerId = "cms.views.layout.navbar";
     angular.module("cms").controller(controllerId, [
-        "$rootScope", "$state", "appSession",
-        function ($rootScope, $state, appSession) {
+        "$rootScope", "$state", "appSession", "abp.services.app.menuService",
+        function ($rootScope, $state, appSession, menuService) {
             var vm = this;
 
-            vm.menu = abp.nav.menus.MainMenu;
-            vm.currentMenuName = $state.current.menu;
+            vm.menus = [];
+
+            //vm.menu = abp.nav.menus.MainMenu;
+            //vm.currentMenuName = $state.current.menu;
+
+            function getCurrentMenus() {
+                menuService.getCurrentMenus({}).success(function (result) {
+                    if (result.code === 0) {
+                        vm.menus = result.data;
+                    } else {
+                        abp.notify.error(App.localize(result.message));
+                    }
+                });
+            }
+
+            getCurrentMenus();
 
             $rootScope.$on("$stateChangeSuccess", function (event, toState, toParams, fromState, fromParams) {
                 vm.currentMenuName = toState.menu;

@@ -1,6 +1,9 @@
 ﻿using System.Data.Common;
+using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using Groupon.Authorization.Roles;
+using Groupon.Grp.Members;
+using Groupon.Menus;
 using Groupon.MultiTenancy;
 using Groupon.Users;
 
@@ -10,7 +13,11 @@ namespace Groupon.EntityFramework
     {
         //TODO: Add-Migration InitialCreate
         //TODO: Update-Database
+        public virtual IDbSet<Menu> Menus { get; set; }
+        public virtual IDbSet<MenuPermission> MenuPermissions { get; set; }
+
         //TODO: Define an IDbSet for your Entities...
+        public virtual IDbSet<Member> Members { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
