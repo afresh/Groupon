@@ -3,7 +3,7 @@ using Abp.Web.Mvc.Authorization;
 
 namespace Groupon.Web.Controllers
 {
-    [AbpMvcAuthorize]
+    //[AbpMvcAuthorize]
     public class HomeController : GrouponControllerBase
     {
         public ActionResult Index()

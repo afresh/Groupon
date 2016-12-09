@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('app').factory('appSession', [
+    angular.module("cms").factory("appSession", [
             function () {
 
                 var _session = {

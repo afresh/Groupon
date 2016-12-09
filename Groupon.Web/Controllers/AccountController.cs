@@ -61,7 +61,7 @@ namespace Groupon.Web.Controllers
 
         #region Login / Logout
 
-        public ActionResult Login(string returnUrl = "")
+        public ActionResult Login(string returnUrl = "/Cms/Index/")
         {
             if (string.IsNullOrWhiteSpace(returnUrl))
             {
@@ -77,7 +77,7 @@ namespace Groupon.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> Login(LoginViewModel loginModel, string returnUrl = "", string returnUrlHash = "")
+        public async Task<JsonResult> Login(LoginViewModel loginModel, string returnUrl = "/Cms/Index/", string returnUrlHash = "")
         {
             CheckModelState();
 

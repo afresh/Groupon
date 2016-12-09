@@ -307,6 +307,58 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="Cms\Main\app.js" />
+    <Content Include="Cms\Main\css\cms.css" />
+    <Content Include="Cms\Main\css\skins\all.skins.css" />
+    <Content Include="Cms\Main\images\avatar.png" />
+    <Content Include="Cms\Main\images\avatar04.png" />
+    <Content Include="Cms\Main\images\avatar2.png" />
+    <Content Include="Cms\Main\images\avatar3.png" />
+    <Content Include="Cms\Main\images\avatar5.png" />
+    <Content Include="Cms\Main\images\boxed-bg.jpg" />
+    <Content Include="Cms\Main\images\boxed-bg.png" />
+    <Content Include="Cms\Main\images\credit\american-express.png" />
+    <Content Include="Cms\Main\images\credit\cirrus.png" />
+    <Content Include="Cms\Main\images\credit\mastercard.png" />
+    <Content Include="Cms\Main\images\credit\mestro.png" />
+    <Content Include="Cms\Main\images\credit\paypal.png" />
+    <Content Include="Cms\Main\images\credit\paypal2.png" />
+    <Content Include="Cms\Main\images\credit\visa.png" />
+    <Content Include="Cms\Main\images\default-50x50.gif" />
+    <Content Include="Cms\Main\images\icons.png" />
+    <Content Include="Cms\Main\images\photo1.png" />
+    <Content Include="Cms\Main\images\photo2.png" />
+    <Content Include="Cms\Main\images\photo3.jpg" />
+    <Content Include="Cms\Main\images\photo4.jpg" />
+    <Content Include="Cms\Main\images\user1-128x128.jpg" />
+    <Content Include="Cms\Main\images\user2-160x160.jpg" />
+    <Content Include="Cms\Main\images\user3-128x128.jpg" />
+    <Content Include="Cms\Main\images\user4-128x128.jpg" />
+    <Content Include="Cms\Main\images\user5-128x128.jpg" />
+    <Content Include="Cms\Main\images\user6-128x128.jpg" />
+    <Content Include="Cms\Main\images\user7-128x128.jpg" />
+    <Content Include="Cms\Main\images\user8-128x128.jpg" />
+    <Content Include="Cms\Main\js\cms.js" />
+    <Content Include="Cms\Main\images\abp-logo.png" />
+    <Content Include="Cms\Main\main.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
+    <Content Include="Cms\Main\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="Cms\Main\services\appSession.js" />
+    <Content Include="Cms\Main\views\about\about.js" />
+    <Content Include="Cms\Main\views\directives\autoFocus.js" />
+    <Content Include="Cms\Main\views\directives\enterKey.js" />
+    <Content Include="Cms\Main\views\home\home.js" />
+    <Content Include="Cms\Main\views\layout\header.js" />
+    <Content Include="Cms\Main\views\layout\layout.js" />
+    <Content Include="Cms\Main\views\layout\navbar.js" />
+    <Content Include="Cms\Main\views\tenants\createModal.js" />
+    <Content Include="Cms\Main\views\tenants\index.js" />
+    <Content Include="Cms\Main\views\users\createModal.js" />
+    <Content Include="Cms\Main\views\users\index.js" />
+    <Content Include="Cms\Main\_libconfig.js" />
     <Content Include="App\Main\app.js" />
     <Content Include="App\Main\images\abp-logo.png" />
     <Content Include="App\Main\main.css">
@@ -315,7 +367,6 @@
     <Content Include="App\Main\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
-    <Content Include="App\Main\services\appSession.js" />
     <Content Include="App\Main\views\directives\autoFocus.js" />
     <Content Include="App\Main\views\directives\enterKey.js" />
     <Content Include="App\Main\views\layout\header.js" />
@@ -456,6 +507,17 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="Cms\Main\main.less" />
+    <Content Include="Cms\Main\views\about\about.cshtml" />
+    <Content Include="Cms\Main\views\home\home.cshtml" />
+    <Content Include="Cms\Main\views\layout\header.cshtml" />
+    <Content Include="Cms\Main\views\layout\layout.cshtml" />
+    <Content Include="Cms\Main\views\tenants\createModal.cshtml" />
+    <Content Include="Cms\Main\views\tenants\index.cshtml" />
+    <Content Include="Cms\Main\views\users\createModal.cshtml" />
+    <Content Include="Cms\Main\views\users\index.cshtml" />
+    <Content Include="Cms\Main\web.config" />
+    <Content Include="Cms\Main\views\layout\navbar.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -1252,6 +1314,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CmsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\GrouponControllerBase.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />

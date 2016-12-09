@@ -65,6 +65,18 @@ namespace Groupon.Web
 
             //APPLICATION RESOURCES
 
+            bundles.Add(
+                new StyleBundle("~/Bundles/Cms/Main/css")
+                    .Include("~/Content/bootstrap.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
+                    .IncludeDirectory("~/Cms/Main", "*.css", true)
+                );
+
+            bundles.Add(
+                new ScriptBundle("~/Bundles/Cms/Main/js")
+                    .IncludeDirectory("~/Cms/Main", "*.js", true)
+                );
+
             //~/Bundles/App/Main/css
             bundles.Add(
                 new StyleBundle("~/Bundles/App/Main/css")
