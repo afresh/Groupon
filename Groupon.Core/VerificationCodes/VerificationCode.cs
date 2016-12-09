@@ -10,16 +10,16 @@ namespace Groupon.VerificationCodes
     {
         [Description("手机号")]
         [StringLength(20)]
-        public string Mobile { get; set; }
+        public virtual string Mobile { get; set; }
 
         [Description("验证码")]
         [StringLength(6)]
-        public string Code { get; set; }
+        public virtual string Code { get; set; }
 
         [Description("验证状态")]
-        public EnumVerificationState State { get; set; }
+        public virtual EnumVerificationState State { get; set; }
 
         [Description("验证类型")]
-        public EnumVerificationType Type { get; set; }
+        public virtual EnumVerificationType Type { get; set; }
     }
 }
