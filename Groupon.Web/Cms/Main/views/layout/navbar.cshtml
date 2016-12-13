@@ -1,61 +1,42 @@
 ﻿<div ng-controller="cms.views.layout.navbar as vm">
     <!-- Control Sidebar -->
-    <aside class="main-sidebar">
+    <aside class="main-sidebar" ng-class="isSidebarFull ? 'viewFramework-sidebar-full' : 'viewFramework-sidebar-mini'">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
+            <div class="viewFramework-sidebar-top" ng-click="changeSidebarFull();"><i class="fa fa-bars" ng-class="isSidebarFull ? 'transform-90' : ''"></i></div>
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img alt="User Image" class="img-circle" src="~/Cms/Main/images/user1-128x128.jpg" />
+                    <img alt="User Image" class="img-circle" ng-src="{{vm.face}}" />
                 </div>
-                <div class="pull-left info">
-                    <p>&nbsp;&nbsp;&nbsp;阿凯</p>
-                    <a href="#"><i class="fa fa-male text-primary"></i> 管理员</a>
-                    @*<a href="#"><i class="fa fa-female text-danger"></i> 销售</a>*@
+                <div class="pull-left info" ng-if="isSidebarFull">
+                    <p>&nbsp;&nbsp;&nbsp;{{vm.getShownUserName()}}</p>
+                    <a href="javascript: void(0);"><i class="{{vm.sex}}"></i> {{vm.role}}</a>
                 </div>
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
-                <li class="header">菜单</li>
-                <li ng-class="{'active': index === 0, 'treeview': menu.childMenus}" ng-repeat="(index, menu) in vm.menus">
-                    <a ng-href="{{menu.url ? '#' + menu.url : 'javascript: void(0);'}}">
-                        <i class="{{menu.icon}}"></i> <span>{{menu.name}}</span>
-                        <span class="pull-right-container" ng-if="menu.childMenus.length > 0">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu" ng-if="menu.childMenus.length > 0">
-                        <li ng-repeat="(childIndex, childMenu) in menu.childMenus">
-                            <a ng-href="{{'#' + childMenu.url}}"><i class="{{childMenu.icon}}"></i> {{childMenu.name}}</a>
-                        </li>
-                    </ul>
-                </li>
-                @*<li>
-                    <a href="#">
-                        <i class="fa fa-th"></i> <span>窗口小部件</span>
-                        <span class="pull-right-container">
-                            <small class="label pull-right bg-green">new</small>
-                        </span>
+                <li class="menu">菜单</li>
+                <li ng-class="{'active': menu.isChosed}" ng-repeat="(index, menu) in vm.menus" ng-click="chooseMenu(menu);">
+                    <a ng-href="{{menu.templateUrl ? '#/' + menu.url : 'javascript: void(0);'}}">
+                        <i class="{{menu.icon}}  fa-lg"></i> <span ng-if="isSidebarFull">{{menu.name}}</span>
                     </a>
                 </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-pie-chart"></i>
-                        <span>图表</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Morris</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Flot</a></li>
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-                    </ul>
-                </li>*@
             </ul>
         </section>
         <!-- /.sidebar -->
     </aside>
     <!-- /.control-sidebar -->
+    <aside class="main-nextbar" ng-class="isSidebarFull ? 'viewFramework-nextbar-full' : 'viewFramework-nextbar-mini'" ng-if="vm.currentMenu.childMenus.length > 0">
+        <section class="nextbar">
+            <div class="viewFramework-nextbar-top">{{vm.currentMenu.name}}</div>
+            <ul class="nextbar-menu">
+                <li ng-class="{'active': menu.isChosed}" ng-repeat="(index, menu) in vm.currentMenu.childMenus" ng-click="chooseChildMenu(menu);">
+                    <a ng-href="{{menu.templateUrl ? '#/' + menu.url : 'javascript: void(0);'}}">
+                        <span>{{menu.name}}</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </aside>
 </div>

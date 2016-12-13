@@ -1,8 +1,13 @@
 ﻿(function () {
     var controllerId = "cms.views.layout";
     angular.module("cms").controller(controllerId, [
-        "$scope", function ($scope) {
+        "$rootScope", "$scope", function ($rootScope, $scope) {
             var vm = this;
-            //Layout logic...
+
+            $rootScope.isSidebarFull = true;
+
+            $rootScope.changeSidebarFull = function() {
+                $rootScope.isSidebarFull = !$rootScope.isSidebarFull;
+            }
         }]);
 })();

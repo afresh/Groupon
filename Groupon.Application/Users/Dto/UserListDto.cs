@@ -1,6 +1,7 @@
 using System;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using Groupon.Roles.Dto;
 
 namespace Groupon.Users.Dto
 {
@@ -19,10 +20,16 @@ namespace Groupon.Users.Dto
 
         public bool IsEmailConfirmed { get; set; }
 
+        public string PhoneNumber { get; set; }
+
+        public bool IsPhoneNumberConfirmed { get; set; }
+
         public DateTime? LastLoginTime { get; set; }
 
         public bool IsActive { get; set; }
 
         public DateTime CreationTime { get; set; }
+
+        public RoleListDto Role { get; set; }
     }
 }

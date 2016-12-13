@@ -50,12 +50,12 @@
     @Scripts.Render("~/Bundles/Cms/Main/js")
     
 </head>
-<body class="skin-black">
+<body class="skin-primary">
     <div ng-app="cms">
         <div ng-controller="cms.views.layout as vm">
             <div ng-include="'/Cms/Main/views/layout/header.cshtml'"></div>
-            <div class="sidebar" ng-include="'/Cms/Main/views/layout/navbar.cshtml'"></div>
-            <div class="angular-animation-container page">
+            <div ng-include="'/Cms/Main/views/layout/navbar.cshtml'"></div>
+            <div class="angular-animation-container" ng-class="setPageSize()">
                 <div ui-view class="shuffle-animation col-xs-12"></div>
             </div>
         </div>

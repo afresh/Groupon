@@ -1,10 +1,13 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Groupon.Authorization;
+using Groupon.Authorization.Roles;
+using Groupon.Roles.Dto;
 using Groupon.Users.Dto;
 using Microsoft.AspNet.Identity;
 
@@ -15,12 +18,14 @@ namespace Groupon.Users
     public class UserAppService : GrouponAppServiceBase, IUserAppService
     {
         private readonly IRepository<User, long> _userRepository;
+        private readonly IRepository<Role> _roleRepository;
         private readonly IPermissionManager _permissionManager;
 
-        public UserAppService(IRepository<User, long> userRepository, IPermissionManager permissionManager)
+        public UserAppService(IRepository<User, long> userRepository, IPermissionManager permissionManager, IRepository<Role> roleRepository)
         {
             _userRepository = userRepository;
             _permissionManager = permissionManager;
+            _roleRepository = roleRepository;
         }
 
         public async Task ProhibitPermission(ProhibitPermissionInput input)
@@ -40,10 +45,18 @@ namespace Groupon.Users
         public async Task<ListResultDto<UserListDto>> GetUsers()
         {
             var users = await _userRepository.GetAllListAsync();
-
-            return new ListResultDto<UserListDto>(
-                users.MapTo<List<UserListDto>>()
-                );
+            var roles = await _roleRepository.GetAllListAsync();
+            var roleListDto = roles.FirstOrDefault(o => o.IsDefault).MapTo<RoleListDto>();
+            var userListDtos = new List<UserListDto>();
+            foreach (var user in users)
+            {
+                var userListDto = user.MapTo<UserListDto>();
+                var roleId = user.Roles.FirstOrDefault()?.RoleId;
+                var role = roles.FirstOrDefault(o => o.Id == roleId);
+                userListDto.Role = role == null ? roleListDto : role.MapTo<RoleListDto>();
+                userListDtos.Add(userListDto);
+            }
+            return new ListResultDto<UserListDto>(userListDtos);
         }
 
         public async Task CreateUser(CreateUserInput input)

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.IdentityFramework;
 using Abp.Runtime.Session;
+using Groupon.Authorization.Roles;
 using Groupon.MultiTenancy;
 using Groupon.Users;
 using Microsoft.AspNet.Identity;
@@ -17,6 +18,8 @@ namespace Groupon
         public TenantManager TenantManager { get; set; }
 
         public UserManager UserManager { get; set; }
+
+        public RoleManager RoleManager { get; set; }
 
         protected GrouponAppServiceBase()
         {
@@ -37,6 +40,23 @@ namespace Groupon
         protected virtual Task<Tenant> GetCurrentTenantAsync()
         {
             return TenantManager.GetByIdAsync(AbpSession.GetTenantId());
+        }
+
+        protected async Task<Role> GetCurrentRole(long id)
+        {
+            var userRoles = await UserManager.GetRolesAsync(id);
+            if (userRoles.Count == 0)
+            {
+                return null;
+            }
+            foreach (var role in RoleManager.Roles)
+            {
+                if (role.Name == userRoles[0])
+                {
+                    return role;
+                }
+            }
+            return null;
         }
 
         protected virtual void CheckErrors(IdentityResult identityResult)

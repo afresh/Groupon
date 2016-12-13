@@ -1,16 +1,54 @@
 ﻿body {
-        padding-top: 50px;
-        font-family:'Microsoft YaHei'
+    padding-top: 50px;
+    font-family: 'Microsoft YaHei';
 }
 
 a {
     cursor: pointer;
 }
 
-a:-webkit-any-link {
-    color: -webkit-link;
-    text-decoration: none;
-    cursor: auto;
+    a:-webkit-any-link {
+        color: -webkit-link;
+        text-decoration: none;
+        cursor: auto;
+    }
+
+.transform-90 {
+transform: rotate(90deg);
+}
+
+.header {
+    top: 0;
+    border-width: 0 0 1px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+.logo {
+    float: left;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    width: 64px;
+    text-align: center;
+    background-color: #0087b4;
+    border: 0;
+}
+
+.cmsname {
+    float: left;
+    height: 50px;
+    font-size: 16px;
+    line-height: 50px;
+    text-align: center;
+    padding: 0 15px;
+    border: 0;
 }
 
 .func-nav {
@@ -21,188 +59,346 @@ a:-webkit-any-link {
  * Component: Sidebar
  * ------------------
  */
+.menu {
+    padding: 10px 18px 10px 18px !important;
+}
+
 .main-sidebar,
 .left-side {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 20px;
-  min-height: 100%;
-  width: 230px;
-  z-index: 810;
-  -webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
-  -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
-  -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*padding-top: 20px;*/
+    min-height: 100%;
+    z-index: 810;
+    /*-webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;*/
 }
+
 @media (max-width: 767px) {
-  .main-sidebar,
-  .left-side {
-    padding-top: 100px;
-  }
+    .main-sidebar,
+    .left-side {
+        padding-top: 100px;
+    }
 }
+
 @media (max-width: 767px) {
-  .main-sidebar,
-  .left-side {
-    -webkit-transform: translate(-230px, 0);
-    -ms-transform: translate(-230px, 0);
-    -o-transform: translate(-230px, 0);
-    transform: translate(-230px, 0);
-  }
+    .main-sidebar,
+    .left-side {
+        -webkit-transform: translate(-230px, 0);
+        -ms-transform: translate(-230px, 0);
+        -o-transform: translate(-230px, 0);
+        transform: translate(-230px, 0);
+    }
 }
+
 @media (min-width: 768px) {
-  .sidebar-collapse .main-sidebar,
-  .sidebar-collapse .left-side {
-    -webkit-transform: translate(-230px, 0);
-    -ms-transform: translate(-230px, 0);
-    -o-transform: translate(-230px, 0);
-    transform: translate(-230px, 0);
-  }
+    .sidebar-collapse .main-sidebar,
+    .sidebar-collapse .left-side {
+        -webkit-transform: translate(-230px, 0);
+        -ms-transform: translate(-230px, 0);
+        -o-transform: translate(-230px, 0);
+        transform: translate(-230px, 0);
+    }
 }
+
 @media (max-width: 767px) {
-  .sidebar-open .main-sidebar,
-  .sidebar-open .left-side {
-    -webkit-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
-    transform: translate(0, 0);
-  }
-}
-.sidebar {
-  padding-bottom: 10px;
-}
-.sidebar-form input:focus {
-  border-color: transparent;
-}
-.user-panel {
-  position: relative;
-  width: 100%;
-  padding: 10px;
-  overflow: hidden;
-}
-.user-panel:before,
-.user-panel:after {
-  content: " ";
-  display: table;
-}
-.user-panel:after {
-  clear: both;
-}
-.user-panel > .image > img {
-  width: 100%;
-  max-width: 45px;
-  height: auto;
-}
-.user-panel > .info {
-  padding: 5px 5px 5px 15px;
-  line-height: 1;
-  position: absolute;
-  left: 55px;
-}
-.user-panel > .info > p {
-  font-weight: 600;
-  margin-bottom: 9px;
-}
-.user-panel > .info > a {
-  text-decoration: none;
-  padding-right: 5px;
-  margin-top: 3px;
-  font-size: 11px;
-}
-.user-panel > .info > a > .fa,
-.user-panel > .info > a > .ion,
-.user-panel > .info > a > .glyphicon {
-  margin-right: 3px;
-}
-.sidebar-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.sidebar-menu > li {
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-.sidebar-menu > li > a {
-  padding: 12px 5px 12px 15px;
-  display: block;
-}
-.sidebar-menu > li > a > .fa,
-.sidebar-menu > li > a > .glyphicon,
-.sidebar-menu > li > a > .ion {
-  width: 20px;
-}
-.sidebar-menu > li .label,
-.sidebar-menu > li .badge {
-  margin-right: 5px;
-}
-.sidebar-menu > li .badge {
-  margin-top: 3px;
-}
-.sidebar-menu li.header {
-  padding: 10px 25px 10px 15px;
-  font-size: 12px;
-}
-.sidebar-menu li > a > .fa-angle-left,
-.sidebar-menu li > a > .pull-right-container > .fa-angle-left {
-  width: auto;
-  height: auto;
-  padding: 0;
-  margin-right: 10px;
-}
-.sidebar-menu li > a > .fa-angle-left {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  margin-top: -8px;
-}
-.sidebar-menu li.active > a > .fa-angle-left,
-.sidebar-menu li.active > a > .pull-right-container > .fa-angle-left {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-.sidebar-menu li.active > .treeview-menu {
-  display: block;
-}
-.sidebar-menu .treeview-menu {
-  display: none;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  padding-left: 5px;
-}
-.sidebar-menu .treeview-menu .treeview-menu {
-  padding-left: 20px;
-}
-.sidebar-menu .treeview-menu > li {
-  margin: 0;
-}
-.sidebar-menu .treeview-menu > li > a {
-  padding: 10px 5px 10px 15px;
-  display: block;
-  font-size: 14px;
-}
-.sidebar-menu .treeview-menu > li > a > .fa,
-.sidebar-menu .treeview-menu > li > a > .glyphicon,
-.sidebar-menu .treeview-menu > li > a > .ion {
-  width: 20px;
-}
-.sidebar-menu .treeview-menu > li > a > .pull-right-container > .fa-angle-left,
-.sidebar-menu .treeview-menu > li > a > .pull-right-container > .fa-angle-down,
-.sidebar-menu .treeview-menu > li > a > .fa-angle-left,
-.sidebar-menu .treeview-menu > li > a > .fa-angle-down {
-  width: auto;
+    .sidebar-open .main-sidebar,
+    .sidebar-open .left-side {
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        -o-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
 }
 
 .sidebar {
     margin-top: 50px;
+    padding-bottom: 10px;
 }
 
-.page {
-    margin-top: -50px;
-    margin-left: 230px;
-    padding: 5px;
+.sidebar-form input:focus {
+    border-color: transparent;
 }
+
+.user-panel {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    overflow: hidden;
+}
+
+    .user-panel:before,
+    .user-panel:after {
+        content: " ";
+        display: table;
+    }
+
+    .user-panel:after {
+        clear: both;
+    }
+
+    .user-panel > .image > img {
+        width: 100%;
+        max-width: 45px;
+        height: auto;
+    }
+
+    .user-panel > .info {
+        padding: 5px 5px 5px 15px;
+        line-height: 1;
+        position: absolute;
+        left: 55px;
+    }
+
+        .user-panel > .info > p {
+            font-weight: 600;
+            margin-bottom: 9px;
+        }
+
+        .user-panel > .info > a {
+            text-decoration: none;
+            padding-right: 5px;
+            margin-top: 3px;
+            font-size: 11px;
+        }
+
+            .user-panel > .info > a > .fa,
+            .user-panel > .info > a > .ion,
+            .user-panel > .info > a > .glyphicon {
+                margin-right: 3px;
+            }
+
+.sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .sidebar-menu > li {
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+        .sidebar-menu > li > a {
+            padding: 12px 10px 12px 20px;
+            display: block;
+        }
+
+            .sidebar-menu > li > a > .fa,
+            .sidebar-menu > li > a > .glyphicon,
+            .sidebar-menu > li > a > .ion {
+                width: 24px;
+            }
+
+        .sidebar-menu > li .label,
+        .sidebar-menu > li .badge {
+            margin-right: 5px;
+        }
+
+        .sidebar-menu > li .badge {
+            margin-top: 3px;
+        }
+
+    .sidebar-menu li.header {
+        padding: 10px 20px 10px 20px;
+        font-size: 12px;
+    }
+
+    .sidebar-menu li > a > .fa-angle-left,
+    .sidebar-menu li > a > .pull-right-container > .fa-angle-left {
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin-right: 10px;
+    }
+
+    .sidebar-menu li > a > .fa-angle-left {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        margin-top: -8px;
+    }
+
+    .sidebar-menu li.active > a > .fa-angle-left,
+    .sidebar-menu li.active > a > .pull-right-container > .fa-angle-left {
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .sidebar-menu li.active > .treeview-menu {
+        display: block;
+    }
+
+    .sidebar-menu .treeview-menu {
+        display: none;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        padding-left: 5px;
+    }
+
+        .sidebar-menu .treeview-menu .treeview-menu {
+            padding-left: 20px;
+        }
+
+        .sidebar-menu .treeview-menu > li {
+            margin: 0;
+        }
+
+            .sidebar-menu .treeview-menu > li > a {
+                padding: 10px 5px 10px 15px;
+                display: block;
+                font-size: 14px;
+            }
+
+                .sidebar-menu .treeview-menu > li > a > .fa,
+                .sidebar-menu .treeview-menu > li > a > .glyphicon,
+                .sidebar-menu .treeview-menu > li > a > .ion {
+                    width: 20px;
+                }
+
+                .sidebar-menu .treeview-menu > li > a > .pull-right-container > .fa-angle-left,
+                .sidebar-menu .treeview-menu > li > a > .pull-right-container > .fa-angle-down,
+                .sidebar-menu .treeview-menu > li > a > .fa-angle-left,
+                .sidebar-menu .treeview-menu > li > a > .fa-angle-down {
+                    width: auto;
+                }
+
+.viewFramework-page-full-show {
+    margin-top: -50px;
+    margin-left: 340px;
+    padding: 5px;
+    padding-top: 50px;
+}
+
+.viewFramework-page-full-hide {
+    margin-top: -50px;
+    margin-left: 180px;
+    padding: 5px;
+    padding-top: 50px;
+}
+
+.viewFramework-page-mini-show {
+    margin-top: -50px;
+    margin-left: 225px;
+    padding: 5px;
+    padding-top: 50px;
+}
+
+.viewFramework-page-mini-hide {
+    margin-top: -50px;
+    margin-left: 65px;
+    padding: 5px;
+    padding-top: 50px;
+}
+
+.viewFramework-sidebar-full {
+    width: 180px;
+    display: block;
+}
+
+.viewFramework-sidebar-mini {
+    width: 65px;
+    display: block;
+}
+
+.viewFramework-sidebar-top {
+    text-align: center;
+    color: #fff;
+    padding: 5px 0;
+    background: #1a2226;
+    cursor: pointer;
+}
+
+.viewFramework-nextbar-full {
+    width: 160px;
+    left: 180px;
+}
+
+.viewFramework-nextbar-mini {
+    width: 160px;
+    left: 65px;
+}
+
+.main-nextbar {
+    position: absolute;
+    min-height: 100%;
+    z-index: 810;
+}
+
+.nextbar {
+    margin-top: 50px;
+    padding-bottom: 10px;
+}
+
+.viewFramework-nextbar-top {
+    background: #bbcee0;
+    font-weight: bold;
+    padding: 25px 15px;
+}
+
+.nextbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .nextbar-menu > li {
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+        .nextbar-menu > li > a {
+            padding: 12px 10px 12px 20px;
+            display: block;
+        }
+
+            .nextbar-menu > li > a > .fa,
+            .nextbar-menu > li > a > .glyphicon,
+            .nextbar-menu > li > a > .ion {
+                width: 24px;
+            }
+
+        .nextbar-menu > li .label,
+        .nextbar-menu > li .badge {
+            margin-right: 5px;
+        }
+
+        .nextbar-menu > li .badge {
+            margin-top: 3px;
+        }
+
+    .nextbar-menu li.header {
+        padding: 10px 20px 10px 20px;
+        font-size: 12px;
+    }
+
+    .nextbar-menu li > a > .fa-angle-left,
+    .nextbar-menu li > a > .pull-right-container > .fa-angle-left {
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin-right: 10px;
+    }
+
+    .nextbar-menu li > a > .fa-angle-left {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        margin-top: -8px;
+    }
+
+    .nextbar-menu li.active > a > .fa-angle-left,
+    .nextbar-menu li.active > a > .pull-right-container > .fa-angle-left {
+        -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }

@@ -22,6 +22,8 @@ namespace Groupon.Sessions
                 output.Tenant = (await GetCurrentTenantAsync()).MapTo<TenantLoginInfoDto>();
             }
 
+            output.Role = (await GetCurrentRole(output.User.Id)).MapTo<RoleLoginInfoDto>();
+
             return output;
         }
     }
