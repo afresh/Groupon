@@ -68,6 +68,8 @@ namespace Groupon.Web
             bundles.Add(
                 new StyleBundle("~/Bundles/Cms/Main/css")
                     .Include("~/Content/bootstrap.min.css", new CssRewriteUrlTransform())
+                    .Include("~/Scripts/sweetalert/sweet-alert.css", new CssRewriteUrlTransform())
+                    .Include("~/Content/flags/famfamfam-flags.css", new CssRewriteUrlTransform())
                     .Include("~/Content/font-awesome.min.css", new CssRewriteUrlTransform())
                     .IncludeDirectory("~/Cms/Main", "*.css", true)
                 );

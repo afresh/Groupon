@@ -388,6 +388,8 @@
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\login-bg.png" />
+    <Content Include="Content\layout.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -1346,6 +1348,7 @@
     <Content Include="Views\Account\Login.css.map">
       <DependentUpon>Login.css</DependentUpon>
     </Content>
+    <Content Include="Views\Account\Login - 备份.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
